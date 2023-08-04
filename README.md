@@ -33,10 +33,10 @@ https://docs.google.com/spreadsheets/d/13eIEt9l90jQX3ND-4h4GPmfjf4Wcgq0MOJUENLpe
 ## wireframe
 https://www.figma.com/file/utFqCqdiMOVg3cKOfoRzH0/Projet-final-DIC?type=design&node-id=14%3A429&mode=design&t=pm1hYutESFUaie9y-1
 
-## ER diagramm
+## Screen transition diagram
 ![ER diagram](DiagrammeNavigationEcran.png)
 
-## Screen transition diagram
+## ER diagramm
 
 ![Screen transition diagram](DiagrammeEr.png)
 ## Vous avez là le lien pour accéder aux diagrammes ER et de transitions d'écrans
