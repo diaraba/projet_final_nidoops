@@ -1,0 +1,8 @@
+class AddStructureActivite < ActiveRecord::Migration[6.0]
+  def change
+    create_table :activites_structures do |t|
+      t.references :structure, null: false, foreign_key: true
+      t.references :activite, null: false, foreign_key: true
+    end
+  end
+end

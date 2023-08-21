@@ -1,0 +1,31 @@
+@import '~bootstrap/scss/bootstrap';
+.delete {
+    color: #F84343; /* Remplacez par la couleur souhaitée */
+}
+
+.edit {
+ 
+    color: #5FCAD9; /* Remplacez par la couleur souhaitée */
+}
+
+.commentaire_card {
+    margin-top: 2%;
+ 
+    width: 40%;
+    height:100%;
+    flex-shrink: 0;
+    border-radius: 8px;
+    border: 1px solid #91C8E4;
+    background: #F6F4EB;
+    color: #000000;
+}  
+  
+ .commentaire_card_content {
+    display:flex; 
+    justify-content: space-between;
+    margin-left: 10px;
+    margin-right:5px;
+}
+.commentaire_card_time {
+    margin-left: 10px;
+}

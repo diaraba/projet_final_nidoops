@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Titre:</strong>
+  <%= @annonce.title %>
+</p>
+
+<p>
+  <strong>Objet:</strong>
+  <%= @annonce.purpose %>
+</p>
+
+
+<p>
+  <strong>Description:</strong>
+  <%= @annonce.description %>
+</p>
+
+
+<p>
+  <strong>Image:</strong>
+  <%= link_to @annonce.image.filename, @annonce.image if @annonce.image.attached? %>
+  <%= image_tag @annonce.image.variant(resize_to_limit: [100, 100]) if @annonce.image.attached? %>
+</p>
+
+<%= link_to 'Edit', edit_annonce_path(@annonce) %> |
+<%= link_to 'Destroy', @annonce, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to "Back", :back %>
+
+
+<hr>
+<% if user_signed_in? %>
+  <div id="form_area">
+    <%= render partial: 'annonce_comments/form', locals: { comment: @comment, annonce: @annonce } %>
+  </div>
+<%end%>  
+<div id="comments_area">
+  <%= render partial: 'annonce_comments/index', locals: { comments: @comments, annonce: @annonce } %>
+</div>
+<br>
+<br>

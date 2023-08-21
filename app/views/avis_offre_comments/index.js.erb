@@ -1,0 +1,2 @@
+$("#comments_area").html("<%= j(render 'avis_offre_comments/index', { comments: @comment.avis_offre.avis_offre_comments, avis_offre: @comment.avis_offre }) %>")
+$("textarea").val('')

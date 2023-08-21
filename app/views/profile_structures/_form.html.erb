@@ -1,0 +1,59 @@
+<%= form_with(model: profile_structure, local: true) do |form| %>
+  <% if profile_structure.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(profile_structure.errors.count, "error") %> prohibited this profile structure from being saved:</h2>
+
+      <ul>
+        <% profile_structure.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :localisation %>
+    <%= form.text_field :localisation %>
+  </div>
+
+  <div class="field">
+    <%= form.label :slogan %>
+    <%= form.text_field :slogan %>
+  </div>
+
+  <div class="field">
+    <%= form.label :statut %>
+    <%= form.text_field :statut %>
+  </div>
+
+  <div class="field">
+    <%= form.label :numero %>
+    <%= form.text_field :numero %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <%= form.hidden_field :structure_id, value: current_structure.id %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

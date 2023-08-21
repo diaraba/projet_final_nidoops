@@ -1,0 +1,29 @@
+<%= render 'layouts/flash' %>
+<% comments.order(created_at: :asc).each do |comment| %>
+  <div id ="this_comment_<%= comment.id %>">
+    <div class="commentaire_card">
+      <div class="commentaire_card_content">
+          <div>
+            <%= simple_format(comment.description) %>
+          </div>
+
+          <div>
+            <%if correct_user(comment)%>
+                <span>
+                  <%= link_to edit_annonce_annonce_comment_path(annonce, comment), remote: true do%>
+                    <i class="material-icons edit">edit_square</i>
+                  <% end %>
+                </span>
+                <span>
+                  <%= link_to  annonce_annonce_comment_path(comment.annonce_id, comment.id), data: { confirm: "本当に削除しますか?"}, method: :delete, remote: true  do%>
+                    <i class="material-icons delete ">delete</i>
+                  <% end %>
+                </span>
+            <% end %>
+          </div>
+      </div>
+
+        <span class="commentaire_card_time">Publier :<%= time_ago_in_words(comment.created_at) %></span>
+    </div>
+  </div>
+<% end %>

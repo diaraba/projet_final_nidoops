@@ -1,0 +1,15 @@
+<% if user_signed_in? %>
+    <%= render partial: 'accueils/utilisateur' %>
+    <p> <%= current_user.name %></p>
+<%end%>  
+
+<% if structure_signed_in? %>
+    <p> 
+        Bienvenue à vous !
+    </p>
+<%end%>  
+
+
+<% if !structure_signed_in? && !user_signed_in? %>
+    <%= render partial: 'accueils/autre' %>
+<%end%>  

@@ -1,0 +1,2 @@
+class NotificationStructure < ApplicationRecord
+end

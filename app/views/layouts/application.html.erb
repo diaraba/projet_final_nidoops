@@ -5,14 +5,37 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+   <div class="container">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      
+      <%= link_to "Accueil", accueils_path() %> |
+      <% if user_signed_in? %>
+        <%= link_to "Structures", structures_user_path(current_user) %> |
+        <%= link_to "A la une", a_la_une_for_user_user_path(current_user) %> |
+        <%= link_to "Profile", profile_user_path(current_user) %> |
 
-    <%= yield %>
+        <%= link_to "Déconnexion User", destroy_user_session_path, method: :delete %>
+      <% elsif structure_signed_in? %>  
+    
+        <%= link_to "Annonces", annonces_path %> | 
+        <%= link_to "Avis offres", avis_offres_path %> |
+        <%= link_to "Abonnés", subscribers_structure_path(current_structure) %> |
+        <%= link_to "Profile", profile_structure_path(current_structure) %> |
+        <%= link_to "Déconnexion Structure", destroy_structure_session_path, method: :delete %>
+      <% elsif !structure_signed_in? && !user_signed_in? %>  
+        <%= link_to "A la une", a_la_une_for_others_path %> |
+        <%= link_to "Structures", structures_path %> |
+        <%= link_to "Se connecter", new_user_session_path %>
+      <% end %>
+  
+      <%= yield %>
+   </div>  
   </body>
 </html>

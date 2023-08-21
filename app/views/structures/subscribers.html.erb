@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Abonnés</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Email</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @subscribers.each do |subscriber| %>
+      <tr>
+        <td><%= subscriber.name %></td>
+        <td><%= subscriber.email %></td>
+        <td><%= link_to 'Show', profile_user_path(subscriber) %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

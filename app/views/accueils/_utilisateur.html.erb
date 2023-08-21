@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+<h2>
+  Bienvenu sur notre plateforme de mise en relation nidoops
+</h2>
+<span>
+  Accéder aux dernières informations disponible sur la plateforme via le lien suivant  
+</span>
+<span><%= link_to "A la une", a_la_une_for_user_user_path(current_user) %></span>
+<p>
+  Vous avez là la liste des structure selon vos préférences
+</p>
+<h5>Structures</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>Alias</th>
+      <th>Email</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @structures.each do |structure| %>
+      <tr>
+        <td><%= structure.alias %></td>
+        <td><%= structure.email %></td>
+        <td><%= link_to 'Show', structure %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

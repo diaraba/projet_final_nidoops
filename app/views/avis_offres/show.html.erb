@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Titre:</strong>
+  <%= @avis_offre.title %>
+</p>
+
+<p>
+  <strong>Objet:</strong>
+  <%= @avis_offre.purpose %>
+</p>
+
+<p>
+  <strong>Condition:</strong>
+  <%= @avis_offre.condition %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @avis_offre.description %>
+</p>
+
+
+<p>
+  <strong>Image:</strong>
+  <%= link_to @avis_offre.image.filename, @avis_offre.image if @avis_offre.image.attached? %>
+  <%= image_tag @avis_offre.image.variant(resize_to_limit: [100, 100]) if @avis_offre.image.attached? %>
+</p>
+
+<%= link_to 'Edit', edit_avis_offre_path(@avis_offre) %> |
+<%= link_to 'Destroy', @avis_offre, method: :delete, data: { confirm: 'Are you sure?' } %>|
+<%= link_to "Back", :back %>
+
+
+
+<hr>
+<% if user_signed_in? %>
+  <div id="form_area">
+    <%= render partial: 'avis_offre_comments/form', locals: { comment: @comment, avis_offre: @avis_offre } %>
+  </div>
+<%end%>  
+<div id="comments_area">
+  <%= render partial: 'avis_offre_comments/index', locals: { comments: @comments, avis_offre: @avis_offre } %>
+</div>
+<br>
+<br>

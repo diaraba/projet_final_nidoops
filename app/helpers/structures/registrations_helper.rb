@@ -1,0 +1,2 @@
+module Structures::RegistrationsHelper
+end

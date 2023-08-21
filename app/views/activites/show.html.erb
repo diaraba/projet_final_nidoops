@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nom:</strong>
+  <%= @activite.name %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_activite_path(@activite) %> |
+<%= link_to 'Destroy', @activite, method: :delete, data: { confirm: 'Are you sure?' } %>|
+<%= link_to 'Back', activites_path %>

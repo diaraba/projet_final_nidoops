@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+<% if user_signed_in? &&  profile_empty?(current_user)  %>
+    <p>
+      Votre profile n'est pas créer veuillez le faire en accédant au lien suivant :
+    </p>
+    <%= link_to "Créer profile", new_profile_user_path %>
+<% else%>
+
+      <p>
+        <strong>Nom:</strong>
+        <%= @profile_user.nom %>
+      </p>
+
+      <p>
+        <strong>Prenom:</strong>
+        <%= @profile_user.prenom %>
+      </p>
+      
+      <p>
+        <strong>Genre:</strong>
+        <%= @profile_user.genre %>
+      </p>
+
+      <p>
+        <strong>Situation:</strong>
+        <%= @profile_user.situation %>
+      </p>
+
+
+      <p>
+        <strong>Numero:</strong>
+        <%= @profile_user.numero %>
+      </p> 
+
+
+      <p>
+        <strong>Image:</strong>
+        <%= link_to @profile_user.image.filename, @profile_user.image if @profile_user.image.attached? %>
+        <%= image_tag @profile_user.image.variant(resize_to_limit: [100, 100]) if @profile_user.image.attached? %>
+      </p>
+
+      <%= link_to 'Edit', edit_profile_user_path(@profile_user) %> |
+      <%= link_to 'Edit compte', edit_user_registration_path %> |
+      <%= link_to 'Destroy', @profile_user, method: :delete, data: { confirm: 'Are you sure?' } %>|
+      <%= link_to "Back", :back %>
+<% end %>

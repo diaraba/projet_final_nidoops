@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+<% if profile_structure_empty?(current_structure) %>
+  <p>
+    Votre profile n'est pas créer veuillez le faire en accédant au lien suivant :
+  </p>
+  <%= link_to "Créer profile", new_profile_structure_path %>
+<% else %>
+  <p>
+    <strong>Nom:</strong>
+    <%= @profile_structure.name %>
+  </p>
+
+  <p>
+    <strong>Slogan:</strong>
+    <%= @profile_structure.slogan %>
+  </p>
+  
+  <p>
+    <strong>Statut:</strong>
+    <%= @profile_structure.statut %>
+  </p>
+
+  <p>
+    <strong>Localisation:</strong>
+    <%= @profile_structure.localisation %>
+  </p>
+
+
+  <p>
+    <strong>Numero:</strong>
+    <%= @profile_structure.numero %>
+  </p> 
+
+  <p>
+    <strong>Email:</strong>
+    <%= @profile_structure.email %>
+  </p> 
+
+  <p>
+    <strong>Description:</strong>
+    <%= @profile_structure.description %>
+  </p>
+
+
+  <p>
+    <strong>Image:</strong>
+    <%= link_to @profile_structure.image.filename, @profile_structure.image if @profile_structure.image.attached? %>
+    <%= image_tag @profile_structure.image.variant(resize_to_limit: [100, 100]) if @profile_structure.image.attached? %>
+  </p>
+
+  <%= link_to 'Edit', edit_profile_structure_path(@profile_structure) %> |
+  <%= link_to 'Edit compte', edit_structure_registration_path %> |
+  <%= link_to 'Destroy', @profile_structure, method: :delete, data: { confirm: 'Are you sure?' } %>|
+  <%= link_to 'Back', :back %>
+<% end %>

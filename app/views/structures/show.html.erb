@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Alias:</strong>
+  <%= @structure.alias %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @structure.email %>
+</p>
+
+<div style="display:flex; justify-content:flex-start">
+  <div>
+    <% if est_abonner(@structure.id) %>
+        <%= link_to "Désabonner", structure_abonnement_path(@structure, @abonnement1), method: :delete, class:"btn btn-warning" %>
+    <% else %>
+        <%= render partial: 'abonnements/new', locals: {abonnement: @abonnement, structure: @structure } %>
+    <% end %>
+  </div>
+
+  <div style="margin-left:10%;">
+    <%= link_to "Voir les annonces", annonces_structure_path(@structure), class:"btn btn-info" %>
+  </div>
+  <div style="margin-left:10%;">  
+    <%= link_to "Voir les avis d'offres", avis_offres_structure_path(@structure), class:"btn btn-info" %>
+  </div>  
+</div> 
+ <%= link_to "Back", :back %>

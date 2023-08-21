@@ -1,0 +1,2 @@
+$('.alert').remove();
+$("#this_comment_<%= @comment.id %>").replaceWith("<%= j(render 'avis_offre_comments/edit', { avis_offre: @avis_offre, comment: @comment }) %>");
