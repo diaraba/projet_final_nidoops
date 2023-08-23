@@ -41,6 +41,6 @@
 
       <%= link_to 'Edit', edit_profile_user_path(@profile_user) %> |
       <%= link_to 'Edit compte', edit_user_registration_path %> |
-      <%= link_to 'Destroy', @profile_user, method: :delete, data: { confirm: 'Are you sure?' } %>|
+      <%= link_to 'Destroy', profile_user_path(@profile_user), method: :delete, data: { confirm: 'Are you sure?' } %>|
       <%= link_to "Back", :back %>
 <% end %>

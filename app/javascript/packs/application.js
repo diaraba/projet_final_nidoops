@@ -10,7 +10,9 @@ require("channels")
 require("jquery")
 import 'bootstrap';
 import '../stylesheets/application';
-
+import '../stylesheets/style';
+import '../stylesheets/demo';
+import './scripts';
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)

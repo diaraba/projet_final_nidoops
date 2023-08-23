@@ -1,5 +1,5 @@
 class StructuresController < ApplicationController
-    before_action :set_blog, only: %i[ show annonces avis_offres subscribers]
+    before_action :set_structure, only: %i[ show annonces avis_offres subscribers destroy]
 
     # GET /structures or /structures.json 
     def index
@@ -29,22 +29,20 @@ class StructuresController < ApplicationController
     end
     
   
-    # PATCH/PUT /blogs/1 or /blogs/1.json
-    def update_profile
+
+
+    def destroy
+      @structure.destroy
+
       respond_to do |format|
-        if @annonce.update(blog_params)
-          format.html { redirect_to annonce_url(@annonce), notice: "Annonce was successfully updated." }
-          format.json { render :show, status: :ok, location: @annonce }
-        else
-          format.html { render :edit, status: :unprocessable_entity }
-          format.json { render json: @annonce.errors, status: :unprocessable_entity }
-        end
+        format.html { redirect_to structures_url, notice: "Annonce was successfully destroyed." }
+        format.json { head :no_content }
       end
-    end
+    end 
   
     private
       # Use callbacks to share common setup or constraints between actions.
-      def set_blog
+      def set_structure
         @structure = Structure.find(params[:id])
       end
     

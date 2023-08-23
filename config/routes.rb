@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/accueils/dashboard', as: 'rails_admin'
   devise_for :structures, controllers: {
     registrations: 'structures/registrations', # Contrôleur de registration personnalisé pour Structure
     sessions: 'structures/sessions',           # Contrôleur de sessions personnalisé pour Structure
@@ -11,7 +12,7 @@ Rails.application.routes.draw do
     # ... d'autres contrôleurs si nécessaire
   }
   
-  root 'conversations#index'
+  root 'accueils#index'
   resources :conversations, only: [:index, :show]
   
 
@@ -44,10 +45,13 @@ Rails.application.routes.draw do
   resources :profile_users
 
   resources :activites
-  resources :accueils 
+  resources :accueils do
+    get 'dashboard'
+  end  
+  
   get 'accueils/a_la_une_for_others', to: 'accueils#a_la_une_for_others', as: :a_la_une_for_others
 
-
+  get 'accueils/dashboard', to: 'accueils#dashboard', as: :dashboard
 
   #resources :utilisateurs, only: [:new, :create, :edit, :update, :destroy]
   #resources :structures, only: [:new, :create, :edit, :update, :destroy]

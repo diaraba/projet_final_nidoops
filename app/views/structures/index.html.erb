@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+
+<td><%= link_to 'Ajouter structure', new_structure_registration_path %></td>
 <h1>Structures</h1>
 
 <table>
@@ -17,7 +19,7 @@
         <td><%= structure.alias %></td>
         <td><%= structure.email %></td>
         <td><%= link_to 'Show', structure %></td>
-        
+        <td><%= link_to 'Destroy', structure_path(structure)	, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

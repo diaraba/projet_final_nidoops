@@ -13,6 +13,12 @@ class AccueilsController < ApplicationController
     def show
       @annonces = Annonce.latest_annonce
       @avis_offres = AvisOffre.latest_avis_offre
-    end        
+    end 
+    
+    
+    def dashboard
+        @users = User.all
+        @structures = Structure.all
+    end   
 
 end

@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :annonce_comments, dependent: :destroy
   has_many :avis_offre_comments, dependent: :destroy
-  has_one :profile_user
+  has_one :profile_user, dependent: :destroy
   has_and_belongs_to_many :activites
   has_many :abonnements, dependent: :destroy
   has_many :structures, through: :abonnements 

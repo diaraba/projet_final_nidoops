@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :set_blog, only: %i[ structures a_la_une_for_user ]
+    before_action :set_user, only: %i[ structures a_la_une_for_user destroy]
 
     def structures
       @structures = @user.structures
@@ -14,10 +14,19 @@ class UsersController < ApplicationController
     def index
       @users = User.all
     end
+
+    def destroy
+      @user.destroy
+
+      respond_to do |format|
+        format.html { redirect_to users_url, notice: "Annonce was successfully destroyed." }
+        format.json { head :no_content }
+      end
+    end 
   
     private
       # Use callbacks to share common setup or constraints between actions.
-      def set_blog
+      def set_user
         @user = User.find(params[:id])
       end
 end

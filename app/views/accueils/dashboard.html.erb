@@ -1,0 +1,52 @@
+
+<h5>Structures</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>Alias</th>
+      <th>Email</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @structures.each do |structure| %>
+      <tr>
+        <td><%= structure.alias %></td>
+        <td><%= structure.email %></td>
+        <td><%= link_to 'Show', structure %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+
+
+
+<h5>Utilisateurs</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Email</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.nom %></td>
+        <td><%= user.email %></td>
+        <td><%= link_to 'Show', user %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

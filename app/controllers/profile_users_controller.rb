@@ -1,5 +1,5 @@
 class ProfileUsersController < ApplicationController
-    before_action :set_profile, only: %i[ show  edit update ]
+    before_action :set_profile, only: %i[ show  edit update destroy]
 
     def new
       @profile_user = ProfileUser.new
@@ -42,9 +42,27 @@ class ProfileUsersController < ApplicationController
     end
 
 
+    def destroy
+      
+      @profile_user.destroy
+
+      respond_to do |format|
+        format.html { redirect_to accueils_url, notice: "Annonce was successfully destroyed." }
+        format.json { head :no_content }
+      end
+    end 
+
     private
       def set_profile
-        @user = User.find(params[:id]) 
+        if user_signed_in?
+          @user = current_user
+          @profile_user = @current_user.profile_user
+        else
+          @user = User.find(params[:id]) 
+          @profile_user = @user.profile_user
+        end
+
+        
       end  
 
       def profile_params
