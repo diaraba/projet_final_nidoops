@@ -12,11 +12,13 @@
 
 <div style="display:flex; justify-content:flex-start">
   <div>
-    <% if est_abonner(@structure.id) %>
-        <%= link_to "Désabonner", structure_abonnement_path(@structure, @abonnement1), method: :delete, class:"btn btn-warning" %>
-    <% else %>
-        <%= render partial: 'abonnements/new', locals: {abonnement: @abonnement, structure: @structure } %>
-    <% end %>
+    <% if user_signed_in? %>
+      <% if est_abonner(@structure.id) %>
+          <%= link_to "Désabonner", structure_abonnement_path(@structure, @abonnement1), method: :delete, class:"btn btn-warning" %>
+      <% else %>
+          <%= render partial: 'abonnements/new', locals: {abonnement: @abonnement, structure: @structure } %>
+      <% end %>
+    <% end %> 
   </div>
 
   <div style="margin-left:10%;">

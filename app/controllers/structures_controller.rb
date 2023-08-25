@@ -24,9 +24,10 @@ class StructuresController < ApplicationController
     # GET /structures/1 or /structures/1.json
     def show
       @abonnement = @structure.abonnements.build
-
-      @abonnement1 = Abonnement.specific_abonnement_first(current_user.id ,@structure.id)
-    end
+        if user_signed_in?
+          @abonnement1 = Abonnement.specific_abonnement_first(current_user.id ,@structure.id)
+        end
+      end
     
   
 
