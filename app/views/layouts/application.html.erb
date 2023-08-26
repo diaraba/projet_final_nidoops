@@ -113,15 +113,15 @@
                           <% if  current_user.try(:admin?)%>
                           <li>
                               <a href="<%= dashboard_path %>">
-                                <i class="fa fa-tachometer-alt"></i>
-                                <span>Dashboard</span>
+                                <i class="fa fa-tachometer-alt text-white"></i>
+                                <span >Dashboard</span>
                               </a>
                           </li>
                           <% else %>
 
                           <li>
                               <a href="<%= accueils_path() %>">
-                                <i class="fa fa-tachometer-alt"></i>
+                                <i class="fa fa-tachometer-alt text-white"></i>
                                 <span>Accueil</span>
                               </a>
                           </li>
@@ -130,7 +130,7 @@
                       <% else %>
                           <li>
                               <a href="<%= accueils_path() %>">
-                                <i class="fa fa-tachometer-alt"></i>
+                                <i class="fa fa-tachometer-alt text-white"></i>
                                 <span>Accueil</span>
                               </a>
                           </li>
@@ -141,28 +141,28 @@
                   <%if structure_signed_in? %>  
                           <li>
                               <a href="<%= annonces_path %>">
-                                <i class="fa fa-tachometer-alt"></i>
+                                <i class="fa fa-tachometer-alt text-white"></i>
                                 <span>Annonces</span>
                               </a>
                           </li>
 
                           <li>
                               <a href="<%= avis_offres_path() %>">
-                                <i class="fa fa-tachometer-alt"></i>
+                                <i class="fa fa-tachometer-alt text-white"></i>
                                 <span>Avis offres</span>
                               </a>
                           </li>
                           
                           <li>
                               <a href="<%= subscribers_structure_path(current_structure) %>">
-                                <i class="fa fa-tachometer-alt"></i>
+                                <i class="fa fa-tachometer-alt text-white"></i>
                                 <span>Abonnés</span>
                               </a>
                           </li>
 
                           <li>
                               <a href="<%= profile_structure_path(current_structure)  %>">
-                                <i class="fa fa-tachometer-alt"></i>
+                                <i class="fa fa-tachometer-alt text-white"></i>
                                 <span>Profile</span>
                               </a>
                           </li>
@@ -173,14 +173,14 @@
 
                           <li>
                               <a href="<%= a_la_une_for_others_path() %>">
-                                <i class="fa fa-tachometer-alt"></i>
+                                <i class="fa fa-tachometer-alt text-white"></i>
                                 <span>A la une</span>
                               </a>
                           </li>     
 
                           <li>
                               <a href="<%= structures_path() %>">
-                                <i class="fa fa-tachometer-alt"></i>
+                                <i class="fa fa-tachometer-alt text-white"></i>
                                 <span>Structures</span>
                               </a>
                           </li>  
@@ -192,21 +192,21 @@
 
                           <li>
                               <a href="<%= users_path() %>">
-                                <i class="fa fa-book"></i>
+                                <i class="fa fa-book text-white"></i>
                                 <span>Liste des utilisateurs</span>
                               </a>
                           </li>   
 
                           <li>
                               <a href="<%= structures_path() %>">
-                                <i class="fa fa-book"></i>
+                                <i class="fa fa-book text-white"></i>
                                 <span>Liste des structures</span>
                               </a>
                           </li>     
 
                           <li>
                               <a href="<%= profile_user_path(current_user) %>">
-                                <i class="fa fa-tachometer-alt"></i>
+                                <i class="fa fa-tachometer-alt text-white"></i>
                                 <span>Profile</span>
                               </a>
                           </li>
@@ -214,21 +214,21 @@
                       <% else %>
                           <li>
                               <a href="<%= structures_user_path(current_user) %>">
-                                <i class="fa fa-tachometer-alt"></i>
+                                <i class="fa fa-tachometer-alt text-white"></i>
                                 <span>Structures</span>
                               </a>
                           </li>   
 
                           <li>
                               <a href="<%= a_la_une_for_user_user_path(current_user) %>">
-                                <i class="fa fa-tachometer-alt"></i>
+                                <i class="fa fa-tachometer-alt text-white"></i>
                                 <span>A la une</span>
                               </a>
                           </li>     
 
                           <li>
                               <a href="<%= profile_user_path(current_user) %>">
-                                <i class="fa fa-tachometer-alt"></i>
+                                <i class="fa fa-tachometer-alt text-white"></i>
                                 <span>Profile</span>
                               </a>
                           </li>  
@@ -245,21 +245,21 @@
                         <% if user_signed_in? %>
                           <li>                             
                             <%= link_to destroy_user_session_path, method: :delete  do%>
-                                <i class="fas fa-sign-out-alt"></i>
+                                <i class="fas fa-sign-out-alt text-white"></i>
                                 <span class="text-danger">Déconnexion</span>
                             <% end %> 
                           </li>
                         <% elsif structure_signed_in? %>
                           <li>                             
                             <%= link_to destroy_structure_session_path, method: :delete  do%>
-                                <i class="fas fa-sign-out-alt"></i>
+                                <i class="fas fa-sign-out-alt text-white"></i>
                                 <span class="text-danger">Déconnexion </span>
                             <% end %> 
                           </li>
                         <% else %>
                           <li>                            
                             <%= link_to new_user_session_path  do%>
-                                <i class="fas fa-sign-in-alt"></i>
+                                <i class="fas fa-sign-in-alt text-white"></i>
                                 <span  class="text-primary">Se connecter</span>
                             <% end %> 
                           </li>   
@@ -277,19 +277,19 @@
               <!-- sidebar-content  -->
               <div class="sidebar-footer">
                 <a href="#">
-                  <i class="fa fa-bell"></i>
-                  <span class="badge badge-pill badge-warning notification">3</span>
+                  <i class="fa fa-bell text-white"></i>
+                  <span class="badge badge-pill badge-warning notification text-white">3</span>
                 </a>
                 <a href="#">
-                  <i class="fa fa-envelope"></i>
+                  <i class="fa fa-envelope text-white"></i>
                   <span class="badge badge-pill badge-success notification">7</span>
                 </a>
                 <a href="#">
-                  <i class="fa fa-cog"></i>
-                  <span class="badge-sonar"></span>
+                  <i class="fa fa-cog text-white"></i>
+                  <span class="badge-sonar "></span>
                 </a>
                 <a href="#">
-                  <i class="fa fa-power-off"></i>
+                  <i class="fa fa-power-off text-white"></i>
                 </a>
               </div>
             </nav>
@@ -315,14 +315,7 @@
                       </a>
                     </small>
                   </div>
-                  <div>
-                    <a href="https://github.com/azouaoui-med" target="_blank">
-                      <img alt="GitHub followers" src="https://img.shields.io/github/followers/azouaoui-med?label=github&style=social" />
-                    </a>
-                    <a href="https://twitter.com/azouaoui_med" target="_blank">
-                      <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/azouaoui_med?label=twitter&style=social" />
-                    </a>
-                  </div>
+                  
                 </footer>
               </div>
             </main>
