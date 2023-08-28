@@ -17,7 +17,7 @@ class ProfileUsersController < ApplicationController
       @profile_user = current_user.profile_user
       respond_to do |format|
         if @profile_user.update(profile_params)
-          format.html { redirect_to accueils_path(), notice: "Profile user was successfully created." }
+          format.html { redirect_to accueils_path(), notice: "Profile user was successfully updated." }
           #format.json { render :show, status: :created, location: @profile_user }
         else
           format.html { render :new, status: :unprocessable_entity }
@@ -32,7 +32,7 @@ class ProfileUsersController < ApplicationController
   
       respond_to do |format|
         if @profile_user.save
-          format.html { redirect_to profile_user_url(@profile_user), notice: "Profile user was successfully created." }
+          format.html { redirect_to accueils_path, notice: "Profile user was successfully created." }
           format.json { render :show, status: :created, location: @profile_user }
         else
           format.html { render :new, status: :unprocessable_entity }
