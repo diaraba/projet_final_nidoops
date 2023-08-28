@@ -11,7 +11,7 @@
 admin = User.find_by(email: 'admin@example.com')
 unless admin
   admin = User.create!(
-    name: 'Super Admin'
+    name: 'Super Admin',
     email: 'admin@example.com',
     password: 'password',
     password_confirmation: 'password',
