@@ -3,7 +3,7 @@ class AnnoncesController < ApplicationController
   
   # GET /blogs or /blogs.json
   def index
-    @annonces = Annonce.all
+    @annonces = current_structure.annonces.page(params[:page])
   end
 
   # GET /blogs/1 or /blogs/1.json

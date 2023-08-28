@@ -2,13 +2,17 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/accueils/dashboard', as: 'rails_admin'
   devise_for :structures, controllers: {
     registrations: 'structures/registrations', # Contrôleur de registration personnalisé pour Structure
-    sessions: 'structures/sessions',           # Contrôleur de sessions personnalisé pour Structure
+    sessions: 'structures/sessions',   
+    confirmations: 'structures/confirmations', 
+    passwords: 'structures/passwords',             # Contrôleur de sessions personnalisé pour Structure
     # ... d'autres contrôleurs si nécessaire
   }
 
   devise_for :users, controllers: {
     registrations: 'users/registrations', # Contrôleur de registration personnalisé pour User
-    sessions: 'users/sessions',           # Contrôleur de sessions personnalisé pour User
+    sessions: 'users/sessions',
+    confirmations: 'users/confirmations', 
+    passwords: 'users/passwords',             # Contrôleur de sessions personnalisé pour User
     # ... d'autres contrôleurs si nécessaire
   }
   

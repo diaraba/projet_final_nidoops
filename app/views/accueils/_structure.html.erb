@@ -1,0 +1,61 @@
+<h1>Anonces</h1>
+   <div class="row">
+    <% if @annonces.present? %>
+        <% @annonces.each do |annonce| %>
+            <div class="col-sm-6">
+                <div class="card">
+                <div class="card-body">
+                    <div class="second_style">
+                    <%= image_tag annonce.image.variant(resize_to_limit: [100, 800]) if annonce.image.attached? %> 
+                    </div>
+                    <h5 class="card-title">
+                    <%= annonce.title %>
+                    </h5>
+                    <p class="card-text">
+                        <%= annonce.purpose %>
+                    </p>
+                    <div class="gosomwhere">
+                        <%= link_to 'Voir', annonce , class:" btn btn-info" %>
+                    </div>
+                </div>
+                </div>
+            </div>
+        <% end %>
+     <% end %>
+   </div>
+<div class="pagination">
+    <%= paginate @annonces%>
+</div>    
+
+   <h1>Avis offres</h1>
+
+
+
+   <div class="row">
+     <% if @avis_offres.present? %>   
+        <% @avis_offres.each do |avis_offre| %>
+            <div class="col-sm-6">
+                <div class="card">
+                <div class="card-body">
+                    <div class="second_style">
+                    <%= image_tag avis_offre.image.variant(resize_to_limit: [100, 800]) if avis_offre.image.attached? %> 
+                    </div>
+                    <h5 class="card-title">
+                    <%= avis_offre.title %>
+                    </h5>
+                    <p class="card-text">
+                        <%= avis_offre.purpose %>
+                    </p>
+                    <div class="gosomwhere">
+                        <%= link_to 'Voir', avis_offre , class:" btn btn-info" %>
+                    </div>
+                </div>
+                </div>
+            </div>
+        <% end %>
+     <% end %>
+   </div>
+<div class="pagination">
+    <%= paginate @avis_offres%>
+</div>       
+<br>

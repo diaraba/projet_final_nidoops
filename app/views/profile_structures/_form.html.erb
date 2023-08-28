@@ -11,49 +11,50 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div  class="form-floating mt-4 ">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name , class: "form-control", id: "inputNom"%>
   </div>
 
-  <div class="field">
+  <div  class="form-floating mt-4 ">
     <%= form.label :localisation %>
-    <%= form.text_field :localisation %>
+    <%= form.text_field :localisation , class: "form-control", id: "inputLocalisation"%>
   </div>
 
-  <div class="field">
+  <div  class="form-floating mt-4 ">
     <%= form.label :slogan %>
-    <%= form.text_field :slogan %>
+    <%= form.text_field :slogan , class: "form-control", id: "inputSlogan"%>
   </div>
 
-  <div class="field">
+  <div class="form-floating mt-4 ">
     <%= form.label :statut %>
-    <%= form.text_field :statut %>
+    <%= form.text_field :statut , class: "form-control", id: "inputStatut"%>
   </div>
 
-  <div class="field">
+  <div  class="form-floating mt-4 ">
     <%= form.label :numero %>
-    <%= form.text_field :numero %>
+    <%= form.text_field :numero , class: "form-control", id: "inputNumero"%>
   </div>
 
-  <div class="field">
+  <div  class="form-floating mt-4 ">
     <%= form.label :email %>
-    <%= form.text_field :email %>
+    <%= form.text_field :email , class: "form-control", id: "inputEmail"%>
   </div>
   
-  <div class="field">
+  <div  class="form-floating mt-4 ">
     <%= form.label :image %>
-    <%= form.file_field :image %>
+    <%= form.file_field :image, class: "form-control", id: "inputImage" %>
   </div>
 
-  <div class="field">
+  <div  class="form-floating mt-4 ">
     <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description , class: "form-control", id: "inputDescription" %>
   </div>
 
   <%= form.hidden_field :structure_id, value: current_structure.id %>
 
-  <div class="actions">
-    <%= form.submit %>
+
+  <div class="form-floating mt-4 mb-4 submit ">
+    <%= form.submit "Mettre à jour" , class: "btn btn-success"%>
   </div>
 <% end %>

@@ -11,13 +11,13 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-floating mt-4">
     <%= form.label :nom %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name , placeholder: "Entrer le nom...", class: "form-control", id: "inputNom"%>
   </div>
 
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-floating mt-4 submit">
+    <%= form.submit "Créer", class: "btn btn-success"%>
   </div>
 <% end %>

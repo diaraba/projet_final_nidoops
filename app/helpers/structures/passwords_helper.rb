@@ -1,0 +1,2 @@
+module Structures::PasswordsHelper
+end

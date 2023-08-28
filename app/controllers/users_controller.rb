@@ -2,17 +2,17 @@ class UsersController < ApplicationController
     before_action :set_user, only: %i[ structures a_la_une_for_user destroy]
 
     def structures
-      @structures = @user.structures
+      @structures = @user.structures.page(params[:page])
     end  
 
     def a_la_une_for_user
-      @annonces = Annonce.latest_by_structure_with_matching_activites(@user)
-      @avis_offres = AvisOffre.latest_by_structure_with_matching_activites(@user)
+      @annonces = Annonce.latest_by_structure_with_matching_activites(@user).page(params[:page])
+      @avis_offres = AvisOffre.latest_by_structure_with_matching_activites(@user).page(params[:page])
     end  
 
     # GET /structures or /structures.json 
     def index
-      @users = User.all
+      @users = User.all.page(params[:page])
     end
 
     def destroy

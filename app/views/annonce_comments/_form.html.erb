@@ -1,12 +1,15 @@
 <div class="comment-form">
   <%= form_with(model: [annonce, comment]) do |form| %>
-    <div class="field">
-      <%= form.label :description, "Contenu des commentaires" %> <br>
-      <%= form.text_area :description %>
+
+
+    <div class="form-floating">
+        <label for="inputDescription">Commentaires</label>
+        <%= form.text_area :description, placeholder: "Entrer votre commentaire...", class: "form-control", id: "inputDescription" %>
     </div>
-  
-    <div class="actions">
-      <%= form.submit %>
+    <br/>
+    <div class="form-floating">
+      <%= form.submit  "Envoyer", class: " btn text-uppercase" %>
     </div>
+   
   <% end %>
 </div>

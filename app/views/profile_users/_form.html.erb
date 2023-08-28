@@ -11,40 +11,40 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-floating mt-4 ">
     <%= form.label :nom %>
-    <%= form.text_field :nom %>
+    <%= form.text_field :nom , class: "form-control", id: "inputNom"%>
   </div>
 
-  <div class="field">
+  <div class="form-floating mt-4 ">
     <%= form.label :prenom %>
-    <%= form.text_field :prenom %>
+    <%= form.text_field :prenom , class: "form-control", id: "inputPrenom"%>
   </div>
 
-  <div class="field">
+  <div class="form-floating mt-4 ">
     <%= form.label :genre %>
-    <%= form.text_field :genre %>
+    <%= form.text_field :genre , class: "form-control", id: "inputGenre"%>
   </div>
 
-  <div class="field">
+  <div class="form-floating mt-4 ">
     <%= form.label :situation %>
-    <%= form.text_field :situation %>
+    <%= form.text_field :situation , class: "form-control", id: "inputSituation"%>
   </div>
 
-  <div class="field">
+  <div class="form-floating mt-4 ">
     <%= form.label :numero %>
-    <%= form.text_field :numero %>
+    <%= form.text_field :numero , class: "form-control", id: "inputNumero"%>
   </div>
 
-  <div class="field">
+  <div class="form-floating mt-4 ">
     <%= form.label :image %>
-    <%= form.file_field :image %>
+    <%= form.file_field :image , class: "form-control", id: "inputImage"%>
   </div>
 
 
   <%= form.hidden_field :user_id, value: current_user.id %>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-floating mt-4 mb-4 submit ">
+    <%= form.submit "Mettre à jour" , class: "btn btn-success"%>
   </div>
 <% end %>

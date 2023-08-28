@@ -1,38 +1,32 @@
-<p id="notice"><%= notice %></p>
+<h2>Avis offres</h2>
+<%= link_to 'Ajouter avis_offre', new_avis_offre_path, class:" btn btn-info"%>
 
-<h1>Avis offres</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Titre</th>
-      <th>Objet</th>
-      <th>Condition</th>
-      <th>Description</th>
-      <th>Image</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="row mt-5">
+      <% @avis_offres.each do |avis_offre| %>
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <div class="second_style">
+                  <%= image_tag avis_offre.image.variant(resize_to_limit: [100, 800]) if avis_offre.image.attached? %> 
+                </div>
+                <h5 class="card-title">
+                   <%= avis_offre.title %>
+                </h5>
+                <p class="card-text">
+                    <%= avis_offre.purpose %>
+                </p>
+                <div class="gosomwhere">
+                    <%= link_to 'Voir', avis_offre , class:" btn btn-info" %>
+                </div>
+              </div>
+            </div>
+          </div>
+      <% end %>
+</div>
 
-  <tbody>
-    <% @avis_offres.each do |avis_offre| %>
-      <tr>
-        <td><%= avis_offre.title %></td>
-        <td><%= avis_offre.purpose %></td>
-        <td><%= avis_offre.condition %></td>
-        <td><%= avis_offre.description %></td>
-        <td>
-          <%= link_to avis_offre.image.filename, avis_offre.image if avis_offre.image.attached? %>
-          <%= image_tag avis_offre.image.variant(resize_to_limit: [100, 100]) if avis_offre.image.attached? %> 
-        </td>
-        <td><%= link_to 'Show', avis_offre %></td>
-        <td><%= link_to 'Edit', edit_avis_offre_path(avis_offre) %></td>
-        <td><%= link_to 'Destroy', avis_offre, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
+<div style="margin-top: 5%; ">  
+  <%= link_to "Back", :back, class:"back btn btn-info" %>
+</div> 
 
-<%= link_to 'New avis_offre', new_avis_offre_path %>

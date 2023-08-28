@@ -3,22 +3,22 @@ class StructuresController < ApplicationController
 
     # GET /structures or /structures.json 
     def index
-      @structures = Structure.all
+      @structures = Structure.all.page(params[:page]) 
     end
 
     # GET /structures or /structures.json
     def annonces
-        @annonces = @structure.annonces 
+        @annonces = @structure.annonces.page(params[:page])  
     end
 
     # GET /structures or /structures.json
     def avis_offres
-        @avis_offres = @structure.avis_offres 
+        @avis_offres = @structure.avis_offres.page(params[:page])  
     end
   
     # GET /structures or /structures.json
     def subscribers
-      @subscribers = @structure.users 
+      @subscribers = @structure.users.page(params[:page])  
     end
 
     # GET /structures/1 or /structures/1.json
@@ -27,7 +27,7 @@ class StructuresController < ApplicationController
         if user_signed_in?
           @abonnement1 = Abonnement.specific_abonnement_first(current_user.id ,@structure.id)
         end
-      end
+    end
     
   
 

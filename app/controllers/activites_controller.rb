@@ -11,6 +11,7 @@ class ActivitesController < ApplicationController
       # GET /blogs/new
       def new
         @activite = Activite.new
+        @activites = Activite.all
       end
     
       # GET /blogs/1/edit

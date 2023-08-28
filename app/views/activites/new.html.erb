@@ -1,5 +1,9 @@
-<h1>New Activite</h1>
+<h1>Nouvelle Activite</h1>
 
 <%= render 'form', activite: @activite %>
 
-<%= link_to 'Back', activites_path %>
+
+
+<%= link_to 'Back', activites_path , class:"back btn btn-info"%>
+
+<%= link_to 'Liste ds activités', activites_path , class:" btn btn-light"%>

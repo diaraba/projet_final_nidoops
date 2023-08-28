@@ -65,6 +65,22 @@ a.btn.btn-danger {
     background: #2FC347!important;
 }
 
+.btn.btn-danger {
+   color: #fff;
+   height: 46px;
+   border-radius: 15px !important;
+   width: 144px;
+   background: red!important;
+}
+
+.btn.btn-succcess {
+   color: #fff;
+   height: 46px;
+   border-radius: 15px !important;
+
+   background: #2FC347!important;
+}
+
 input.btn:hover {
    color: #000;
    transition: .3s;
@@ -224,7 +240,8 @@ code{
 
 
 .back.btn{
-   margin-top: 10%;
+   margin-top: 5%;
+   margin-bottom: 5%;
 }
 .text{
    font-weight:bold;
@@ -245,4 +262,71 @@ code{
 
 .alias{
    font-weight: bolder;
+}
+.card {
+   margin-bottom: 5%;
+}
+.card_div{
+   display: flex;
+   justify-content: center;
+}
+.card-body{
+   display: flex;
+   justify-content:center;
+   padding: 0.80rem!important;
+}
+
+.card_bottom{
+   display: flex;
+   justify-content: center;
+   margin-bottom: 2%;
+}
+
+.second_style img{
+  width: 100px;
+  height: 100px;
+  border-radius: 15%;
+}
+.card-title{
+   /*display: flex;
+   justify-content: space-between;*/
+   margin-left: 4%;
+   margin-right: 2%;
+   margin-top: 6%;
+}
+.card-text{
+   margin-top: 6%;
+}
+
+.gosomwhere {
+   display: flex;
+   justify-content: end;
+   height: 20%;
+   margin-top: 12%;
+}
+
+div.card {
+
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   text-align: center;
+}
+.principal{
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.submit{
+   display:flex;
+   justify-content:center;
+}
+.shared_link{
+   display:flex;
+   justify-content:center;
+}
+.pagination{
+   display: flex;
+   justify-content: center;
+}
+
+a.btn.btn-light {
+   background: cadetblue;
 }

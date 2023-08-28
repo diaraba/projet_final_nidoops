@@ -3,7 +3,7 @@ class AvisOffresController < ApplicationController
   
     # GET /blogs or /blogs.json
     def index
-      @avis_offres = AvisOffre.all
+      @avis_offres = current_structure.avis_offres.page(params[:page])
     end
   
     # GET /blogs/1 or /blogs/1.json

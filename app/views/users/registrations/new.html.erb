@@ -1,40 +1,48 @@
-<h2>Sign up</h2>
+<h2>Inscription</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+
+  <div class="form-floating mt-4 ">
+    <label for="inputName">Nom</label>
+    <%= f.text_field :name, placeholder: "Entrer votre nom...", class: "form-control", id: "inputName" %>
+  </div>  
+
+
+  <div class="form-floating mt-4 ">
+    <label for="inputName">Email</label>
+    <%= f.text_field :email, placeholder: "Entrer votre email...", class: "form-control", id: "inputEmail" %>
   </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+
+
+  <div class="form-floating mt-4 ">
+    <label for="inputName">Preferences</label>
+    <%= f.collection_check_boxes :activite_ids, Activite.all, :id, :name, class: "form-control", id: "inputPreference" %>
   </div>
 
-  <div class="field">
-    <%= f.label :preferences %>
-    <%= f.collection_check_boxes :activite_ids, Activite.all, :id, :name %>
-  </div>
+  
 
-  <div class="field">
+  <div class="form-floating mt-4 ">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password", class: "form-control", id: "inputPassword"%>
   </div>
 
-  <div class="field">
+  <div class="form-floating mt-4 ">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", id: "inputPassword" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="form-floating mt-4 mb-4 submit ">
+    <%= f.submit "Inscription" , class: "btn btn-success"%>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<div class="shared_link">
+    <%= render "users/shared/links" %>
+</div>

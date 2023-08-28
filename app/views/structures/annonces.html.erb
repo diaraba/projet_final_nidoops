@@ -1,36 +1,27 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Anonces</h1>
+   <div class="row">
+      <% @annonces.each do |annonce| %>
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <div class="second_style">
+                  <%= image_tag annonce.image.variant(resize_to_limit: [100, 800]) if annonce.image.attached? %> 
+                </div>
+                <h5 class="card-title">
+                   <%= annonce.title %>
+                </h5>
+                <p class="card-text">
+                    <%= annonce.purpose %>
+                </p>
+                <div class="gosomwhere">
+                    <%= link_to 'Voir', annonce , class:" btn btn-info" %>
+                </div>
+              </div>
+            </div>
+          </div>
+      <% end %>
+   </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Titre</th>
-      <th>Objet</th>
-      <th>Description</th>
-      <th>Image</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @annonces.each do |annonce| %>
-      <tr>
-        <td><%= annonce.title %></td>
-        <td><%= annonce.purpose %></td>
-        <td><%= annonce.description %></td>
-        <td>
-          <%= link_to annonce.image.filename, annonce.image if annonce.image.attached? %>
-          <%= image_tag annonce.image.variant(resize_to_limit: [100, 100]) if annonce.image.attached? %> 
-        </td>
-        <td><%= link_to 'Show', annonce %></td>
-        <td><%= link_to 'Edit', edit_annonce_path(annonce) %></td>
-        <td><%= link_to 'Destroy', annonce, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New annonce', new_annonce_path %>
+<div style="margin-top: 5%; ">  
+  <%= link_to "Back", :back, class:"back btn btn-info" %>
+</div> 

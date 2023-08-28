@@ -1,5 +1,5 @@
 class ProfileUsersController < ApplicationController
-    before_action :set_profile, only: %i[ show  edit update destroy]
+    before_action :set_profile, only: %i[ show  destroy]
 
     def new
       @profile_user = ProfileUser.new
@@ -10,15 +10,15 @@ class ProfileUsersController < ApplicationController
     end
 
     def edit
-        @profile_user = @user.profile_user
+        @profile_user = current_user.profile_user
     end  
 
     def update
-      @profile_user = @user.profile_user
+      @profile_user = current_user.profile_user
       respond_to do |format|
         if @profile_user.update(profile_params)
-          format.html { redirect_to profile_user_url(@profile_user), notice: "Profile user was successfully created." }
-          format.json { render :show, status: :created, location: @profile_user }
+          format.html { redirect_to accueils_path(), notice: "Profile user was successfully created." }
+          #format.json { render :show, status: :created, location: @profile_user }
         else
           format.html { render :new, status: :unprocessable_entity }
           format.json { render json: @profile_user.errors, status: :unprocessable_entity }
@@ -55,14 +55,12 @@ class ProfileUsersController < ApplicationController
     private
       def set_profile
         if user_signed_in?
-          @user = current_user
-          @profile_user = @current_user.profile_user
+            @user = User.find(params[:id])
+            @profile_user = @user.profile_user
         else
           @user = User.find(params[:id]) 
           @profile_user = @user.profile_user
         end
-
-        
       end  
 
       def profile_params

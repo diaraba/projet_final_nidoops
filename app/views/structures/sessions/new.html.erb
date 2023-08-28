@@ -1,28 +1,31 @@
-<h2>Log in</h2>
+<h2>Connexion</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
+  <div class="form-floating mt-4 ">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class: "form-control", id: "inputEmail"%>
   </div>
 
-  <div class="field">
+  <div class="form-floating mt-4 ">
     <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.password_field :password, autocomplete: "current-password" ,class: "form-control", id: "inputPassword" %>
   </div>
 
   <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
+    <div class="form-floating mt-4 ">
+      <%= f.check_box :remember_me ,class: "", id: "inputRemenber" %>
       <%= f.label :remember_me %>
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+  <div class="form-floating mt-4 mb-4 submit ">
+    <%= f.submit "Connexion" , class: "btn btn-success"%>
   </div>
 <% end %>
+<div class="shared_link">
+  <div style="margin-top:15px;", class="">
+    <%= render "structures/shared/links" %>
+  </div>
+</div>  
 
-<div style="margin-top:15px;">
-  <%= render "devise/shared/links" %>
-</div>
+  <%= link_to "Back", :back , class:"back btn btn-info"%> 

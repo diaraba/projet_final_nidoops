@@ -203,14 +203,21 @@
                                 <span>Liste des structures</span>
                               </a>
                           </li>     
-
+                          
+                          <li>
+                              <a href="<%= new_activite_path %>">
+                                <i class="fa fa-tachometer-alt text-white"></i>
+                                <span>Ajouter activité</span>
+                              </a>
+                          </li>
+                          
                           <li>
                               <a href="<%= profile_user_path(current_user) %>">
                                 <i class="fa fa-tachometer-alt text-white"></i>
                                 <span>Profile</span>
                               </a>
                           </li>
-                        
+                          
                       <% else %>
                           <li>
                               <a href="<%= structures_user_path(current_user) %>">

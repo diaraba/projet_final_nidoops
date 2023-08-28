@@ -1,0 +1,17 @@
+
+<h1>
+Liste des activités
+</h1>
+<div class="row mt-5 mb5">
+      <% @activites.each do |activite| %>
+          <div class="col-sm-6">
+           
+                <h5 class="card-title">
+                   <%= activite.name %>
+                   <%= link_to 'Edit', edit_activite_path(activite) , class:"btn btn-warning"%> 
+                   <%= link_to 'Destroy', activite, method: :delete, data: { confirm: 'Are you sure?' } , class:"btn btn-danger" %>
+                </h5>
+          </div>
+      <% end %>
+</div>
+<%= link_to 'Back', :back , class:"back btn btn-info"%>

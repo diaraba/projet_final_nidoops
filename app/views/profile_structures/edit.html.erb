@@ -2,5 +2,5 @@
 
 <%= render 'form', profile_structure: @profile_structure %>
 
-<%= link_to 'Show', profile_structure_path(current_structure) %> |
-<%= link_to 'Back', profile_structures_path %>
+<%= link_to 'Back', :back , class: "back btn btn-info"%>
+<%= link_to 'Voir', profile_structure_path(current_structure)  , class: " btn btn-succcess"%>

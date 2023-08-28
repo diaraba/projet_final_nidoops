@@ -2,5 +2,6 @@
 
 <%= render 'form', profile_user: @profile_user %>
 
-<%= link_to 'Show', profile_user_path(current_user) %> |
-<%= link_to 'Back', profile_users_path %>
+
+<%= link_to 'Back', :back , class: "back btn btn-info"%>
+<%= link_to 'Voir', profile_user_path(current_user) , class: " btn btn-succcess"%>

@@ -11,34 +11,34 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-floating mt-4 ">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title , placeholder: "Entrer le titre...", class: "form-control", id: "inputTitle"%>
   </div>
 
-  <div class="field">
+  <div class="form-floating mt-4 ">
     <%= form.label :objet %>
-    <%= form.text_field :purpose %>
+    <%= form.text_field :purpose , placeholder: "Entrer l'objet...", class: "form-control", id: "inputPurpose"%>
   </div>
 
-   <div class="field">
+   <div class="form-floating mt-4 ">
     <%= form.label :condition %>
-    <%= form.text_field :condition %>
+    <%= form.text_field :condition , placeholder: "Entrer la condition...", class: "form-control", id: "inputCondition"%>
   </div>
   
-  <div class="field">
+  <div class="form-floating mt-4 ">
     <%= form.label :image %>
-    <%= form.file_field :image %>
+    <%= form.file_field :image , class: "form-control"%>
   </div>
 
-  <div class="field">
+  <div class="form-floating mt-4 ">
     <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description , placeholder: "Entrer la description...", class: "form-control", id: "inputDescription"%>
   </div>
 
   <%= form.hidden_field :structure_id, value: current_structure.id %>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-floating mt-4 submit">
+    <%= form.submit "Créer", class: "btn btn-success"%>
   </div>
 <% end %>

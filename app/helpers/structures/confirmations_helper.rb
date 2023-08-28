@@ -1,0 +1,2 @@
+module Structures::ConfirmationsHelper
+end
