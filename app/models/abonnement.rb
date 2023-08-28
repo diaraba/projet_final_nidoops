@@ -1,4 +1,9 @@
 class Abonnement < ApplicationRecord
+    validates :structure_id, numericality: { only_integer: true }
+    validates :user_id, numericality: { only_integer: true }
+    validates :user_id, presence: true
+    validates :structure_id, presence: true
+
     belongs_to :user
     belongs_to :structure
     scope :specific_abonnement_first, ->(user_id, structure_id) do

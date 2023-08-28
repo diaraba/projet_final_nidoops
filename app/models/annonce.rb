@@ -1,4 +1,7 @@
 class Annonce < ApplicationRecord
+    validates :title, :description,:purpose,:structure_id, presence: true
+    validates :title, :description,:purpose, length: {maximum: 250}
+
     has_many :annonce_comments, dependent: :destroy
 
     belongs_to :structure

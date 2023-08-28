@@ -1,4 +1,7 @@
 class AvisOffre < ApplicationRecord
+    validates :title, :description,:purpose,:condition,:structure_id, presence: true
+    validates :title, :purpose,:condition, length: {maximum: 250}
+
     has_many :avis_offre_comments, dependent: :destroy
     belongs_to :structure
     has_one_attached :image
