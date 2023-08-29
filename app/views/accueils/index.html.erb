@@ -1,6 +1,9 @@
 <% if user_signed_in? %>
-    <%= render partial: 'accueils/utilisateur' %>
-    <p> <%= current_user.name %></p>
+    <%if current_user.try(:admin?) %>
+        <%= render partial: 'accueils/admin' %>
+    <%else%>
+        <%= render partial: 'accueils/utilisateur' %>
+    <%end%>    
 <%end%>  
 
 <% if structure_signed_in? %>

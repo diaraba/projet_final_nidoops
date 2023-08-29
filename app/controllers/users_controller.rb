@@ -15,6 +15,12 @@ class UsersController < ApplicationController
       @users = User.all.page(params[:page])
     end
 
+    def show
+      # Ajoutez le code nécessaire pour gérer l'action show ici
+      # Par exemple, si vous souhaitez afficher les détails d'un utilisateur
+      redirect_to root_path
+    end
+
     def destroy
       @user.destroy
 

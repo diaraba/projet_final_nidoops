@@ -185,6 +185,7 @@
                               </a>
                           </li>  
 
+
                       
 
                     <% elsif user_signed_in? %>    
@@ -268,7 +269,11 @@
                             <%= link_to new_user_session_path  do%>
                                 <i class="fas fa-sign-in-alt text-white"></i>
                                 <span  class="text-primary">Se connecter</span>
-                            <% end %> 
+                            <% end %>
+
+                            <%= link_to "Admin invité", admin_guest_sign_in_path, method: :post , class:"mb-2 text-white btn btn-info", style:"width:50%; margin-left:18%;"%> 
+                            <%= link_to "Utilisateur invité", guest_sign_in_path, method: :post , class:"mb-2 text-white btn btn-light", style:"width:55%; margin-left:18%;"%> 
+                            <%= link_to "Structure invité", structure_sign_in_path, method: :post , class:"text-white btn btn-info", style:"width:55%; margin-left:18%;"%> 
                           </li>   
                         <%end%>
 
