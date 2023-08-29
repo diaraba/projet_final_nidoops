@@ -24,7 +24,9 @@ end
 activities = [
   { name: 'Agriculture' },
   { name: 'Commerce' },
-  { name: 'Pêche' }
+  { name: 'Pêche' },
+  { name: 'Elevage' },
+  { name: 'Tissage' },
 ]
 
 activities.each do |activity_attrs|
