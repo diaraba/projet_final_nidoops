@@ -1,6 +1,7 @@
 class AccueilsController < ApplicationController
 
     def index
+      
        if user_signed_in? 
         if current_user.try(:admin?)  
           @structures = Structure.all.page(params[:page])        

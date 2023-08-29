@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     # ... d'autres contrôleurs si nécessaire
   }
 
+
+
   devise_for :users, controllers: {
     registrations: 'users/registrations', # Contrôleur de registration personnalisé pour User
     sessions: 'users/sessions',
