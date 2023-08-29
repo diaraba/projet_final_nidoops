@@ -2,11 +2,11 @@
 <div class="comment_edit_form">
   <%= form_with(model: [avis_offre, comment]) do |form| %>
     <div class="field">
-      <%= form.text_area :description, id: "comment_description_#{avis_offre.id}" %>
+      <%= form.text_area :description, id: "comment_description_#{avis_offre.id}" , class: "form-control", id: "inputDescription"%>
     </div>
 
-    <div class="actions">
-      <%= form.submit %>
+    <div class="actions mb-2 mt-2">
+      <%= form.submit "Modifier", class: " btn text-uppercase"%>
     </div>
 
     <%= link_to :back do %>
