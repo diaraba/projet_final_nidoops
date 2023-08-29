@@ -2,7 +2,12 @@ class AccueilsController < ApplicationController
 
     def index
        if user_signed_in? 
-        @structures = Structure.with_same_activites_as_user(current_user).page(params[:page]) 
+        if current_user.try(:admin?)  
+          @structures = Structure.all.page(params[:page])        
+          @users = User.all.page(params[:page])        
+        else  
+          @structures = Structure.with_same_activites_as_user(current_user).page(params[:page])
+        end  
        elsif !user_signed_in? && !structure_signed_in?  
         @structures = Structure.all.page(params[:page]) 
        elsif structure_signed_in?

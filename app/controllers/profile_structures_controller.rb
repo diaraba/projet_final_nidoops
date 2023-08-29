@@ -1,5 +1,6 @@
 class ProfileStructuresController < ApplicationController
-    before_action :set_profile, only: %i[ show  edit update ]
+    before_action :set_structure, only: %i[ show ]
+    before_action :set_profile, only: %i[ destroy edit update]
 
     def new
       @profile_structure = ProfileStructure.new
@@ -10,14 +11,13 @@ class ProfileStructuresController < ApplicationController
     end
 
     def edit
-        @profile_structure = @structure.profile_structure
     end  
 
     def update
-      @profile_structure = @structure.profile_structure
+      
       respond_to do |format|
         if @profile_structure.update(profile_params)
-          format.html { redirect_to profile_structure_url(@profile_structure), notice: "Profile structure was successfully created." }
+          format.html { redirect_to accueils_path, notice: "Profile structure was successfully updated." }
           format.json { render :show, status: :created, location: @profile_structure }
         else
           format.html { render :new, status: :unprocessable_entity }
@@ -32,7 +32,7 @@ class ProfileStructuresController < ApplicationController
   
       respond_to do |format|
         if @profile_structure.save
-          format.html { redirect_to profile_structure_url(@profile_structure), notice: "Profile structure was successfully created." }
+          format.html { redirect_to accueils_path, notice: "Profile structure was successfully created." }
           format.json { render :show, status: :created, location: @profile_structure }
         else
           format.html { render :new, status: :unprocessable_entity }
@@ -42,10 +42,23 @@ class ProfileStructuresController < ApplicationController
     end
 
 
+    def destroy
+      @profile_structure.destroy
+
+      respond_to do |format|
+        format.html { redirect_to profile_structure_url(@profile_structure), notice: "Annonce was successfully destroyed." }
+        format.json { head :no_content }
+      end
+    end 
+
     private
-      def set_profile
+      def set_structure
         @structure = Structure.find(params[:id]) 
       end  
+
+      def set_profile
+        @profile_structure = ProfileStructure.find(params[:id]) 
+      end 
 
       def profile_params
         params.require(:profile_structure).permit(:name, :description, :localisation, :slogan, :statut, :numero, :email, :structure_id, :image)
