@@ -1,19 +1,27 @@
-<h2>
-  Bienvenu sur notre plateforme de mise en relation nidoops
-</h2>
-<p>
-  "Nidoops" est une plateforme de mise en relation permettant aux utilisateurs d'échanger										
-  avec les structures d'appuie du secteur privé, suivre l'actualités  des structures 										
-  et pouvoir saisir les oportnuités à temps																	
-</p>
-<p>
-  Nidoops permettra aux porteurs de projets et chercheurs d’emploi d’avoir des bons conseils										
-  en fonction de leur différent statut en leur mettant en relation avec les structure 										
-  qui peuvent les aider										
-                      
-  Permettre à une structure d’avoir son propre espace dont le contenu sera personnalisable 										
-  et les différents visiteurs pourront y accéder										
-</p>
+<div class="jumbotron">
+      <h2 class="text-center">  Bienvenu sur notre plateforme de mise en relation nidoops</h2>
+      <p class="text-center">"Nidoops" est une plateforme de mise en relation permettant aux utilisateurs d'échanger										
+                              avec les structures d'appuie du secteur privé, suivre l'actualités  des structures 										
+                              et pouvoir saisir les oportnuités à temps				
+      </p>
+      <p class="text-center">
+        Nidoops permettra aux porteurs de projets et chercheurs d’emploi d’avoir des bons conseils										
+        en fonction de leur différent statut en leur mettant en relation avec les structure 										
+        qui peuvent les aider										
+                            
+        Permettre à une structure d’avoir son propre espace dont le contenu sera personnalisable 										
+        et les différents visiteurs pourront y accéder										
+      </p>
+      <div class="text-center">
+      <% if user_signed_in? || structure_signed_in?%>
+        <%= link_to "Commencer", accueils_path, class:"btn btn-info" %>         
+      <% else %>
+        <%= link_to "S'inscrire", new_user_registration_path, class: "btn btn-info" %>
+      <% end %>
+      </div>
+</div>
+
+
 
 <% if user_signed_in? %>
     <%if current_user.try(:admin?) %>
