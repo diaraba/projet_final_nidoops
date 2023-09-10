@@ -4,10 +4,10 @@ class Structures::SessionsController < Devise::SessionsController
     end
 
     def new_guest
-        structure = Structure.find_or_create_by(email: 'structure@example.com') do |structure|
+        structure = Structure.find_or_create_by(email: 'pacepep@gmail.com') do |structure|
         structure.password = SecureRandom.hex(10)
         structure.password_confirmation = structure.password
-        structure.alias = 'Guest structure'
+        structure.alias = 'PACEPEP'
         activites_ids = [1, 2, 3] # IDs des activités préférées de l'utilisateur
         structure.activites << Activite.where(id: activites_ids)
         structure.skip_confirmation!

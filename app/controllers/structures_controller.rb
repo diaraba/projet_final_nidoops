@@ -1,9 +1,11 @@
 class StructuresController < ApplicationController
     before_action :set_structure, only: %i[ show annonces avis_offres subscribers destroy]
+ 
 
     # GET /structures or /structures.json 
     def index
-      @structures = Structure.all.page(params[:page]) 
+      @q = Structure.ransack(params[:q])
+      @structures = @q.result(distinct: true).page(params[:page]).per(3)
     end
 
     # GET /structures or /structures.json
@@ -14,6 +16,18 @@ class StructuresController < ApplicationController
     # GET /structures or /structures.json
     def avis_offres
         @avis_offres = @structure.avis_offres.page(params[:page])  
+    end
+
+
+    def destroy
+      @structure = Structure.find(params[:id])
+      @structure.destroy
+
+      if @structure.destroy
+        redirect_to structures_path, notice: 'Structure was successfully deleted.'
+      else
+        redirect_to structures_path, alert: 'Failed to delete structure.'
+      end
     end
   
     # GET /structures or /structures.json
@@ -32,14 +46,7 @@ class StructuresController < ApplicationController
   
 
 
-    def destroy
-      @structure.destroy
 
-      respond_to do |format|
-        format.html { redirect_to structures_url, notice: "Annonce was successfully destroyed." }
-        format.json { head :no_content }
-      end
-    end 
   
     private
       # Use callbacks to share common setup or constraints between actions.

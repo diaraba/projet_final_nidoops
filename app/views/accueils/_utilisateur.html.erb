@@ -10,6 +10,15 @@
 
 <br>
 
+<div class="mb-4">
+  <%= search_form_for @q do |f| %>
+    <div class="form-group">
+      <%= f.label :alias_cont, "Alias" %>
+      <%= f.search_field :alias_cont, class: "form-control", placeholder: "Titre" %>
+    </div>
+    <%= f.submit "Rechercher", class: "btn btn-primary" %>
+  <% end %>
+</div>
 
 
 <div class="card_div">

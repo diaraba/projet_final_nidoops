@@ -16,6 +16,7 @@ unless admin
     password: 'password',
     password_confirmation: 'password',
     admin: true
+    
   )
   puts 'Default admin user created.'
 end

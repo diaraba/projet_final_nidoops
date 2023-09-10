@@ -47,7 +47,9 @@ Rails.application.routes.draw do
   resources :users do
     get 'a_la_une_for_user', on: :member
     get 'structures', on: :member
-
+    member do
+      patch 'update_admin'
+    end
   end
 
   resources :annonces do

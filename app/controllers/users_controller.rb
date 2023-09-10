@@ -12,7 +12,8 @@ class UsersController < ApplicationController
 
     # GET /structures or /structures.json 
     def index
-      @users = User.all.page(params[:page])
+      @q = User.ransack(params[:q])
+      @users = @q.result(distinct: true).page(params[:page])
     end
 
     def show
@@ -29,7 +30,12 @@ class UsersController < ApplicationController
         format.json { head :no_content }
       end
     end 
-  
+
+    def update_admin
+      @user = User.find(params[:id])
+      @user.update(admin: !@user.admin)
+      redirect_to users_path, notice: 'Admin status updated successfully.'
+    end
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_user

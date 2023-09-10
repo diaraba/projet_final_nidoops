@@ -65,7 +65,9 @@
         <%= render partial: 'annonce_comments/form', locals: { comment: @comment, annonce: @annonce } %>
       </div>
     <%end%>
-
+    <% if !user_signed_in? %>
+      Commentaires
+    <%end%>
     <div id="comments_area">
       <%= render partial: 'annonce_comments/index', locals: { comments: @comments, annonce: @annonce } %>
     </div>   

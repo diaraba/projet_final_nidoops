@@ -1,6 +1,7 @@
+
 <% if user_signed_in? &&  profile_empty?(current_user)  %>
     <p>
-      Votre profile n'est pas créer veuillez le faire en accédant au lien suivant :
+      Votre profile n'est pas créer veuillez le faire pour continuez, accédez au lien suivant pour la création :
     </p>
     <%= link_to "Créer profile", new_profile_user_path %>
 <% else%>

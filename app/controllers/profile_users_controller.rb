@@ -1,5 +1,5 @@
 class ProfileUsersController < ApplicationController
-    before_action :set_profile, only: %i[ show  destroy]
+    before_action :set_profile, only: %i[ show  ]
 
     def new
       @profile_user = ProfileUser.new
@@ -43,7 +43,7 @@ class ProfileUsersController < ApplicationController
 
 
     def destroy
-      
+      @profile_user = ProfileUser.find(params[:id]) 
       @profile_user.destroy
 
       respond_to do |format|

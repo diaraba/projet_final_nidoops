@@ -72,7 +72,9 @@
         <%= render partial: 'avis_offre_comments/form', locals: { comment: @comment, avis_offre: @avis_offre } %>
       </div>
     <%end%>
-
+    <% if !user_signed_in? %>
+      Commentaires
+    <%end%>
     <div id="comments_area">
       <%= render partial: 'avis_offre_comments/index', locals: { comments: @comments, avis_offre: @avis_offre } %>
     </div>   

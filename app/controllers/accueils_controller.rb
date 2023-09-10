@@ -1,30 +1,28 @@
 class AccueilsController < ApplicationController
 
-    def index
-      
+    def index  
        if user_signed_in? 
         if current_user.try(:admin?)  
           @structures = Structure.all.page(params[:page])        
           @users = User.all.page(params[:page])        
         else  
-          @structures = Structure.with_same_activites_as_user(current_user).page(params[:page])
+         @q = Structure.ransack(params[:q])
+         @structures = @q.result.with_same_activites_as_user(current_user).page(params[:page])
         end  
-       elsif !user_signed_in? && !structure_signed_in?  
-        @structures = Structure.all.page(params[:page]) 
+       elsif !user_signed_in? && !structure_signed_in? 
+        @q = Structure.ransack(params[:q]) 
+        @structures = @q.result(distinct: true).page(params[:page]) 
        elsif structure_signed_in?
         @annonces = current_structure.annonces.page(params[:page])
         @avis_offres = current_structure.avis_offres.page(params[:page]) 
        end
 
-    end  
-    
+    end      
 
     def show
       @annonces = Annonce.latest_annonce.page(params[:page])
       @avis_offres = AvisOffre.latest_avis_offre.page(params[:page])
-    end 
-
-    
+    end     
     
     def dashboard
         @users = User.all.page(params[:page])
